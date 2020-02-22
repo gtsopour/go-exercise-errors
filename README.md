@@ -7,9 +7,11 @@ Sqrt should return a non-nil error value when given a negative number, as it doe
 Create a new type
 
 `type ErrNegativeSqrt float64`
+
 and make it an error by giving it a
 
 `func (e ErrNegativeSqrt) Error() string`
+
 method such that ErrNegativeSqrt(-2).Error() returns "cannot Sqrt negative number: -2".
 
 Note: A call to fmt.Sprint(e) inside the Error method will send the program into an infinite loop. You can avoid this by converting e first: fmt.Sprint(float64(e)). Why?
